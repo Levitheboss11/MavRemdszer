@@ -9,7 +9,8 @@
 #include "MavRendszer.h"
 #include "Szemelyvonat.h"
 #include "InterCity.h"
-
+#include "TeljesAruJegy.h"
+#include "KedvezmenyesJegy.h"
 /**
  * @file MavRendszer.cpp
  * @author Tóth Levente István (VK0QG4)
@@ -121,7 +122,7 @@ void MavRendszer::jegyKiadas() {
 
         // Kedvezményes jegy létrehozása
         // A k, u értékeket a helyetFoglal már beállította (IC esetén > 0)
-        addJegy(new KedvezmenyesJegy(nev, igazolvany, kivalasztottVonat, kocsi, ules));
+        addJegy(new KedvezmenyesJegy(nev, kivalasztottVonat, kocsi, ules, igazolvany));
         std::cout << "Sikeres kedvezmenyes jegyvasarlas!" << std::endl;
     }
     else {
