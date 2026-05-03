@@ -6,6 +6,7 @@
 #define MAVRENDSZER_JEGY_H
 
 #include <iostream>
+#include "Vonat.h"
 /**
  * @class Jegy
  * @brief Absztrakt alaposztály a különböző jegytípusok kezeléséhez.
@@ -13,18 +14,19 @@
 class Jegy {
 protected:
     char* utasNev;/**< Az utas neve. */
-    int vonatszam;/**< A vonatszám, amire a jegy szól. */
+  //  int vonatszam;/**< A vonatszám, amire a jegy szól. */
+    Vonat* vonat; /**< A vonat, amire a jegy szól.(vonat szám helyett) */
     int kocsi;/**< Kiosztott kocsiszám. */
     int ules;/**< Kiosztott ülésszám. */
 public:
     /**
      * @brief Konstruktor jegy létrehozásához.
      * @param nev Utas neve.
-     * @param vSzam Vonatszám.
+     * @param v Vonat objektum.
      * @param k Kocsiszám.
      * @param u Ülésszám.
      */
-    Jegy(const char* nev, int vSzam, int k, int u);
+    Jegy(const char* nev, Vonat* v, int k, int u);
 
     /**
          * @brief Virtuális destruktor a dinamikus adattagok és heterogén kollekció kezeléséhez.
@@ -38,6 +40,10 @@ public:
      * @brief Jegy adatainak mentése fájlba.
      */
     virtual void mentes(std::ostream& os) const = 0;
+    /**
+     * @brief Jegy egyenlőség operator törléshez.
+     */
+    bool operator==(const Jegy& masik) const;
 };
 
 

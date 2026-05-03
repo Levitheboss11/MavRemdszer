@@ -13,7 +13,7 @@
 class KedvezmenyesJegy : public Jegy {
     char* igazolvanySzam; /**< A kedvezményre jogosító igazolvány száma. */
 public:
-    KedvezmenyesJegy(const char* nev, int vSzam, int k, int u, const char* igSzam);
+    KedvezmenyesJegy(const char* nev, Vonat* v, int k, int u, const char* igSzam);
 
     void listaz() const override;
     void mentes(std::ostream& os) const override;

@@ -11,7 +11,7 @@
  */
 class TeljesAruJegy : public Jegy {
 public:
-    TeljesAruJegy(const char* nev, int vSzam, int k, int u);
+    TeljesAruJegy(const char* nev, Vonat* v, int k, int u);
     void listaz() const override;
     void mentes(std::ostream& os) const override;
 };
