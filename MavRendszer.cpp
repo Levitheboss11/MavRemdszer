@@ -199,6 +199,64 @@ void MavRendszer::betoltes() {
     }
     fajl.close();
 }
+void MavRendszer::jegyBetoltes() {
+    std::ifstream fajl("jegyek.txt");
+    if (!fajl.is_open()) return;
+
+    char sor[1024];
+    while (fajl.getline(sor, 1024)) {
+        if (strlen(sor) == 0) continue;
+
+        char* darab = strtok(sor, ";");
+        if (!darab) continue;
+        char tipus = darab[0];
+
+        char* nev = strtok(NULL, ";");
+
+        darab = strtok(NULL, ";");
+        if (!darab) continue;
+        int vSzam = atoi(darab);
+
+        darab = strtok(NULL, ";");
+        if (!darab) continue;
+        int kocsi = atoi(darab);
+
+        darab = strtok(NULL, ";");
+        if (!darab) continue;
+        int ules = atoi(darab);
+
+        // 1. Megkeressük a vonatot
+        Vonat* kivalasztottVonat = nullptr;
+        for (int i = 0; i < vonatDb; ++i) {
+            if (vonatok[i]->getVonatszam() == vSzam) {
+                kivalasztottVonat = vonatok[i];
+                break;
+            }
+        }
+
+        // 2. Ha megvan a vonat, jöhet a jegy és a foglalás beállítása
+        if (kivalasztottVonat != nullptr) {
+            if (tipus == 'T') {
+                addJegy(new TeljesAruJegy(nev, kivalasztottVonat, kocsi, ules));
+            }
+            else if (tipus == 'K') {
+                char* igazolvany = strtok(NULL, ";");
+                if (igazolvany) {
+                    addJegy(new KedvezmenyesJegy(nev, kivalasztottVonat, kocsi, ules, igazolvany));
+                }
+            }
+
+            // --- ITT TÖRTÉNIK A BEÍRÁS A VONATBA ---
+            // Megpróbáljuk InterCity-ként kezelni a vonatot
+            InterCity* ic = dynamic_cast<InterCity*>(kivalasztottVonat);
+            if (ic != nullptr) {
+                // Ha ez egy IC, akkor beállítjuk a mátrixában a helyet foglaltnak
+                ic->foglalatBeallit(kocsi, ules);
+            }
+        }
+    }
+    fajl.close();
+}
 void MavRendszer::mentes() {
     std::ofstream fajl("menetrend.txt");
     if (!fajl.is_open()) return;
@@ -207,4 +265,10 @@ void MavRendszer::mentes() {
         vonatok[i]->mentes(fajl); // A polimorfizmus miatt a jó mentes() fut le!
     }
     fajl.close();
+    std::ofstream fajl2("jegyek.txt");
+    if (!fajl2.is_open()) return;
+    for (int i = 0; i < jegyDb; ++i) {
+        jegyek[i]->mentes(fajl2);
+    }
+    fajl2.close();
 }

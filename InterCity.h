@@ -42,6 +42,7 @@ public:
      * @return True, ha sikerült helyet foglalni, egyébként false.
      */
     bool helyetFoglal(int& k, int& s) override;
+    void foglalatBeallit(int k, int s);
 };
 
 

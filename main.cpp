@@ -7,7 +7,7 @@ int main() {
 
     // Opcionális: Indításkor töltsük be a korábbi adatokat
     rendszer.betoltes();
-
+    rendszer.jegyBetoltes();
     int valasztas = -1;
     while (valasztas != 0) {
         std::cout << "\n=== MAV JEGYRENDSZER ===" << std::endl;
@@ -46,7 +46,7 @@ int main() {
             case 0:
                 // Kilépés előtt automatikus mentés (opcionális)
                 rendszer.mentes();
-                std::cout << "Viszontlatasra!" << std::endl;
+                std::cout << "Kilépés..." << std::endl;
                 break;
             default:
                 std::cout << "Ervenytelen opcio!" << std::endl;

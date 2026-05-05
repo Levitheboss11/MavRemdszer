@@ -74,3 +74,13 @@ bool InterCity::helyetFoglal(int& k, int& s) {
     }
     return false; // Nincs több szabad hely
 }
+void InterCity::foglalatBeallit(int k, int s) {
+    // k-1 és s-1, mert a tömb 0-tól indexelődik, a jegyen meg 1-től van
+    int kocsiIdx = k - 1;
+    int ulesIdx = s - 1;
+
+    // Ellenőrizzük, hogy érvényes-e a koordináta
+    if (kocsiIdx >= 0 && kocsiIdx < kocsikSzama && ulesIdx >= 0 && ulesIdx < ulesekSzama) {
+        ulesRend[kocsiIdx][ulesIdx] = true;
+    }
+}

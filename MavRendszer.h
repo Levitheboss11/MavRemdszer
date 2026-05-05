@@ -64,6 +64,7 @@ public:
      * @param j A hozzáadandó jegy mutatója.
      */
     void addJegy(Jegy* j);
+    void jegyBetoltes();
 };
 
 
