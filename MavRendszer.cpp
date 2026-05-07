@@ -17,19 +17,29 @@
  * @brief A Mavrendszer osztály megvalósítása
  * @date 2026-04-27
  */
-//segéd függvény beolvasáshoz
+//segéd függvények a beolvasásokhoz
 int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000) {
     int szam;
     while (true) {
         std::cout << prompt;
         if (std::cin >> szam && szam >= min && szam <= max) {
-            return szam; // Sikeres beolvasás és benne van a tartományban
+            return szam; // Sikeres a beolvasás és benne van a tartományban
         } else {
             std::cout << "Hiba! Kerlek adj meg egy ervenyes szamot (" << min << "-" << max << ")." << std::endl;
             std::cin.clear(); // Hibaflag törlése
-            std::cin.ignore(1000, '\n'); // Maradék kidobása a pufferből
+            std::cin.ignore(1000, '\n'); // Maradéknak a kidobása a pufferből
         }
     }
+}
+bool ervenyesIdoformatum(const char* ido) {
+    // Egyszerű ellenőrzés: 2026.04.27-14:30 -> ez 16 karakter
+    if (strlen(ido) != 16) return false;
+
+    // Ellenőrizzük a pontokat, kötőjelet és kettőspontot a fix helyeken
+    if (ido[4] != '.' || ido[7] != '.' || ido[10] != '-' || ido[13] != ':')
+        return false;
+
+    return true;
 }
 MavRendszer::~MavRendszer() {
     // 6.4 Memória felszabadítása
@@ -71,11 +81,25 @@ void MavRendszer::ujVonat() {
 
     // Vonatszám ellenőrzése (ne legyen negatív)
     szam = szamotBeolvas("Vonatszam: ", 1, 99999);
+    //Az enter miatt kell cin.ignore
+    std::cin.ignore(1000, '\n');
+    std::cout << "Honnan: ";
+    std::cin.getline(honnan, 100);
+    std::cout << "Hova: ";
+    std::cin.getline(hova, 100);
+    while (true) {
+        std::cout << "Indulas (EEEE.HH.NN-OO:PP): ";
+        std::cin.getline(ind, 20);
+        if (ervenyesIdoformatum(ind)) break;
+        std::cout << "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!" << std::endl;
+    }
+    while (true) {
+        std::cout << "Erkezes (EEEE.HH.NN-OO:PP): ";
+        std::cin.getline(erk, 20);
+        if (ervenyesIdoformatum(erk)) break;
+        std::cout << "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!" << std::endl;
+    }
 
-    std::cout << "Honnan: "; std::cin >> honnan;
-    std::cout << "Hova: "; std::cin >> hova;
-    std::cout << "Indulas (EE.HH.NN-OO:PP): "; std::cin >> ind;
-    std::cout << "Erkezes: "; std::cin >> erk;
 
     if (tipus == 1) {
         int k = szamotBeolvas("Kocsik szama: ", 1, 20);
@@ -87,10 +111,10 @@ void MavRendszer::ujVonat() {
 }
 void MavRendszer::jegyKiadas() {
     // Vonat kiválasztása
-    int vSzam;
     std::cout << "--- Jegyvasarlas ---" << std::endl;
     std::cout << "Adja meg a vonat szamat: ";
-    std::cin >> vSzam;
+
+    int vSzam = szamotBeolvas("Adja meg a vonat szamat: ", 1, 99999);
 
     // Keresés a vonatok között
     Vonat* kivalasztottVonat = nullptr;
@@ -106,8 +130,8 @@ void MavRendszer::jegyKiadas() {
         return;
     }
 
-    // Helyfoglalás megkísérlése
-    // A polimorfizmus miatt itt dől el, hogy IC (mátrixos) vagy Személy (mindig oké)
+    // Helyfoglalásnak a megkísérlése
+    // A polimorfizmus miatt itt dől el, hogy IC (mátrixos) vagy Személy Vonat
     int kocsi = 0, ules = 0;
     if (!kivalasztottVonat->helyetFoglal(kocsi, ules)) {
         std::cout << "Hiba: Erre a vonatra minden hely elkelt!" << std::endl;
@@ -127,14 +151,15 @@ void MavRendszer::jegyKiadas() {
     do {
         std::cout << "Kedvezmenyes jegy? (i/n): ";
         std::cin >> valasz;
-        valasz = tolower(valasz); // Kisbetű
+        valasz = tolower(valasz); // Kisbetűvé alakítás, mert így könnyebb kezelni
     } while (valasz != 'i' && valasz != 'n');
 
     // Jegy példányosítása és hozzáadása
     if (valasz == 'i' || valasz == 'I') {
         char igazolvany[30];
         std::cout << "Igazolvany szama: ";
-        std::cin >> igazolvany;
+        std::cin.ignore(1000, '\n'); // Előző karakterek takarítása
+        std::cin.getline(igazolvany, 30); // Így nem fogja tudni túlírni a tömböt
 
         // Kedvezményes jegy létrehozása
         // A k, u értékeket a helyetFoglal már beállította (IC esetén > 0)
