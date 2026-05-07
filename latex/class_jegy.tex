@@ -1,0 +1,140 @@
+\doxysection{Jegy osztályreferencia}
+\hypertarget{class_jegy}{}\label{class_jegy}\index{Jegy@{Jegy}}
+
+
+Absztrakt alaposztály a különböző jegytípusok kezeléséhez.  
+
+
+
+
+{\ttfamily \+\#include $<$Jegy.\+h$>$}
+
+A Jegy osztály származási diagramja:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_jegy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27}{Jegy}} (const char \texorpdfstring{$\ast$}{*}nev, \doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*}v, int k, int u)
+\begin{DoxyCompactList}\small\item\em Konstruktor jegy létrehozásához. \end{DoxyCompactList}\item 
+\Hypertarget{class_jegy_aa25109e2372b9eab43825b9aa9ae1df6}\label{class_jegy_aa25109e2372b9eab43825b9aa9ae1df6} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Jegy} ()
+\begin{DoxyCompactList}\small\item\em Virtuális destruktor a dinamikus adattagok és heterogén kollekció kezeléséhez. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_jegy_aec265299b3d5049bd4acd7a9c7458466}{listaz}} () const =0
+\begin{DoxyCompactList}\small\item\em \doxylink{class_jegy}{Jegy} adatainak kiírása. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_jegy_a6e397ca345f6d730b307746a4a20d9cd}{mentes}} (std::\+ostream \&os) const =0
+\begin{DoxyCompactList}\small\item\em \doxylink{class_jegy}{Jegy} adatainak mentése fájlba. \end{DoxyCompactList}\item 
+\Hypertarget{class_jegy_a517848d6dc9dce16089913295c3e02d8}\label{class_jegy_a517848d6dc9dce16089913295c3e02d8} 
+bool {\bfseries operator==} (const \doxymbox{\hyperlink{class_jegy}{Jegy}} \&masik) const
+\begin{DoxyCompactList}\small\item\em \doxylink{class_jegy}{Jegy} egyenlőség operator törléshez. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Védett attribútumok}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_jegy_ac04e1cf4e046b02acbe74f103290fbd5}{utas\+Nev}}
+\item 
+\doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_jegy_a5f440316186baf9449fee48c36093a82}{vonat}}
+\item 
+int \doxymbox{\hyperlink{class_jegy_ae5d4584c650dbb6ff16a5d64f87abe9c}{kocsi}}
+\item 
+int \doxymbox{\hyperlink{class_jegy_a4d6bab6a19114b75ced0b698249bb80a}{ules}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Részletes leírás}
+Absztrakt alaposztály a különböző jegytípusok kezeléséhez. 
+
+\label{doc-constructors}
+\Hypertarget{class_jegy_doc-constructors}
+\doxysubsection{Konstruktorok és destruktorok dokumentációja}
+\Hypertarget{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27}\index{Jegy@{Jegy}!Jegy@{Jegy}}
+\index{Jegy@{Jegy}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{Jegy()}{Jegy()}}
+{\footnotesize\ttfamily \label{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27} 
+Jegy::\+\+Jegy (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nev}{, }\item[{\doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*}}]{v}{, }\item[{int}]{k}{, }\item[{int}]{u}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor jegy létrehozásához. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em nev} & Utas neve. \\
+\hline
+{\em v} & \doxylink{class_vonat}{Vonat} objektum. \\
+\hline
+{\em k} & Kocsiszám. \\
+\hline
+{\em u} & Ülésszám. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_jegy_doc-func-members}
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_jegy_aec265299b3d5049bd4acd7a9c7458466}\index{Jegy@{Jegy}!listaz@{listaz}}
+\index{listaz@{listaz}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{listaz()}{listaz()}}
+{\footnotesize\ttfamily \label{class_jegy_aec265299b3d5049bd4acd7a9c7458466} 
+virtual void Jegy::\+listaz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\doxylink{class_jegy}{Jegy} adatainak kiírása. 
+
+
+
+Megvalósítják a következők:\+ \doxymbox{\hyperlink{class_kedvezmenyes_jegy_a6bc932965b564e983b3e1a964eb3c9a7}{Kedvezmenyes\+Jegy}} és \doxymbox{\hyperlink{class_teljes_aru_jegy_af766be8d67ffdb096cd5d3ebf7fe6e05}{Teljes\+Aru\+Jegy}}.
+
+\Hypertarget{class_jegy_a6e397ca345f6d730b307746a4a20d9cd}\index{Jegy@{Jegy}!mentes@{mentes}}
+\index{mentes@{mentes}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{mentes()}{mentes()}}
+{\footnotesize\ttfamily \label{class_jegy_a6e397ca345f6d730b307746a4a20d9cd} 
+virtual void Jegy::\+mentes (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{os}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\doxylink{class_jegy}{Jegy} adatainak mentése fájlba. 
+
+
+
+Megvalósítják a következők:\+ \doxymbox{\hyperlink{class_kedvezmenyes_jegy_ad6efb7c9c37ebae230768054f40d1897}{Kedvezmenyes\+Jegy}} és \doxymbox{\hyperlink{class_teljes_aru_jegy_a9f3782010b2c6bfb81ad7ca44405646f}{Teljes\+Aru\+Jegy}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_jegy_doc-variable-members}
+\doxysubsection{Adattagok dokumentációja}
+\Hypertarget{class_jegy_ae5d4584c650dbb6ff16a5d64f87abe9c}\index{Jegy@{Jegy}!kocsi@{kocsi}}
+\index{kocsi@{kocsi}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{kocsi}{kocsi}}
+{\footnotesize\ttfamily \label{class_jegy_ae5d4584c650dbb6ff16a5d64f87abe9c} 
+int Jegy::\+kocsi\hspace{0.3cm}{\ttfamily [protected]}}
+
+Kiosztott kocsiszám. \Hypertarget{class_jegy_a4d6bab6a19114b75ced0b698249bb80a}\index{Jegy@{Jegy}!ules@{ules}}
+\index{ules@{ules}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{ules}{ules}}
+{\footnotesize\ttfamily \label{class_jegy_a4d6bab6a19114b75ced0b698249bb80a} 
+int Jegy::\+ules\hspace{0.3cm}{\ttfamily [protected]}}
+
+Kiosztott ülésszám. \Hypertarget{class_jegy_ac04e1cf4e046b02acbe74f103290fbd5}\index{Jegy@{Jegy}!utasNev@{utasNev}}
+\index{utasNev@{utasNev}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{utasNev}{utasNev}}
+{\footnotesize\ttfamily \label{class_jegy_ac04e1cf4e046b02acbe74f103290fbd5} 
+char\texorpdfstring{$\ast$}{*} Jegy::\+utas\+Nev\hspace{0.3cm}{\ttfamily [protected]}}
+
+Az utas neve. \Hypertarget{class_jegy_a5f440316186baf9449fee48c36093a82}\index{Jegy@{Jegy}!vonat@{vonat}}
+\index{vonat@{vonat}!Jegy@{Jegy}}
+\doxysubsubsection{\texorpdfstring{vonat}{vonat}}
+{\footnotesize\ttfamily \label{class_jegy_a5f440316186baf9449fee48c36093a82} 
+\doxymbox{\hyperlink{class_vonat}{Vonat}}\texorpdfstring{$\ast$}{*} Jegy::\+vonat\hspace{0.3cm}{\ttfamily [protected]}}
+
+A vonat, amire a jegy szól.(vonat szám helyett) 
+
+Ez a dokumentáció az osztályról a következő fájlok alapján készült:\+\begin{DoxyCompactItemize}
+\item 
+Jegy.\+h\item 
+\doxymbox{\hyperlink{_jegy_8cpp}{Jegy.\+cpp}}\end{DoxyCompactItemize}

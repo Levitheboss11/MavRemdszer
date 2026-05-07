@@ -1,0 +1,89 @@
+\doxysection{Mav\+Rendszer osztályreferencia}
+\hypertarget{class_mav_rendszer}{}\label{class_mav_rendszer}\index{MavRendszer@{MavRendszer}}
+
+
+A teljes vasúti rendszert összefogó osztály. Felelős a vonatok és jegyek tárolásáért, mentéséért és a menü vezérléséért.  
+
+
+
+
+{\ttfamily \+\#include $<$Mav\+Rendszer.\+h$>$}
+
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_mav_rendszer_ae0018992d93febe9d803acf1ff4203f6}\label{class_mav_rendszer_ae0018992d93febe9d803acf1ff4203f6} 
+{\bfseries Mav\+Rendszer} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor, inicializálja az üres listákat. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_a49387b6f80c0be00da4b74eaf24f5934}\label{class_mav_rendszer_a49387b6f80c0be00da4b74eaf24f5934} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Mav\+Rendszer} ()
+\begin{DoxyCompactList}\small\item\em Destruktor, felszabadítja a heterogén kollekciókat és az összes tárolt objektumot. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_aaee4b2ca33898273c882a3c75c83f586}\label{class_mav_rendszer_aaee4b2ca33898273c882a3c75c83f586} 
+void {\bfseries betoltes} ()
+\begin{DoxyCompactList}\small\item\em Adatok betöltése fájlból. Megnyitja a menetrend.\+txt-\/t és a jegyek.\+txt-\/t, majd felépíti az objektumokat a memóriában. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_aa466831de931a7ece340b92b82925b80}\label{class_mav_rendszer_aa466831de931a7ece340b92b82925b80} 
+void {\bfseries mentes} ()
+\begin{DoxyCompactList}\small\item\em Adatok mentése háttértárba. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_aeed794b3fa304ddf5493b163219796ab}\label{class_mav_rendszer_aeed794b3fa304ddf5493b163219796ab} 
+void {\bfseries uj\+Vonat} ()
+\begin{DoxyCompactList}\small\item\em Interaktív folyamat új vonat felvételéhez. Bekéri az adatokat a felhasználótól a konzolon keresztül, példányosítja a megfelelő \doxylink{class_vonat}{Vonat} típust, majd átadja az add\+Vonat-\/nak. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_a78ca10eacd1b2d75a9139ef036c377ae}\label{class_mav_rendszer_a78ca10eacd1b2d75a9139ef036c377ae} 
+void {\bfseries jegy\+Kiadas} ()
+\begin{DoxyCompactList}\small\item\em Interaktív jegyvásárlási folyamat. Bekéri az útvonalat, keresi a vonatot, kezeli a helyfoglalást, példányosítja a jegyet, majd átadja az add\+Jegy-\/nek. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_a9be04152a2896a91ef4231bb01650d6d}\label{class_mav_rendszer_a9be04152a2896a91ef4231bb01650d6d} 
+void {\bfseries menetrend\+Listazas} () const
+\begin{DoxyCompactList}\small\item\em A menetrend kilistázása a képernyőre. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_a3adbe208a1e3465b10563ef7012795eb}\label{class_mav_rendszer_a3adbe208a1e3465b10563ef7012795eb} 
+void {\bfseries jegyek\+Listazasa} () const
+\begin{DoxyCompactList}\small\item\em Az összes eladott jegy listázása. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_mav_rendszer_a75aca1664c43bb4369e398b0bb3c86c0}{add\+Vonat}} (\doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Alacsony szintű segédfüggvény a dinamikus tömb bővítéséhez. Elvégzi a memóriafoglalást, a régi mutatók másolását és a felszabadítást. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_mav_rendszer_afbfa591137da3890273de24c83fdda15}{add\+Jegy}} (\doxymbox{\hyperlink{class_jegy}{Jegy}} \texorpdfstring{$\ast$}{*}j)
+\begin{DoxyCompactList}\small\item\em Alacsony szintű segédfüggvény a jegyek dinamikus tömbjének bővítéséhez. Elvégzi a memóriakezelési lépéseket a jegyek mutatótömbjén. \end{DoxyCompactList}\item 
+\Hypertarget{class_mav_rendszer_a5b61f47f0193f9974f0a7ee6f626a59a}\label{class_mav_rendszer_a5b61f47f0193f9974f0a7ee6f626a59a} 
+void {\bfseries jegy\+Betoltes} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Részletes leírás}
+A teljes vasúti rendszert összefogó osztály. Felelős a vonatok és jegyek tárolásáért, mentéséért és a menü vezérléséért. 
+
+\label{doc-func-members}
+\Hypertarget{class_mav_rendszer_doc-func-members}
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_mav_rendszer_afbfa591137da3890273de24c83fdda15}\index{MavRendszer@{MavRendszer}!addJegy@{addJegy}}
+\index{addJegy@{addJegy}!MavRendszer@{MavRendszer}}
+\doxysubsubsection{\texorpdfstring{addJegy()}{addJegy()}}
+{\footnotesize\ttfamily \label{class_mav_rendszer_afbfa591137da3890273de24c83fdda15} 
+void Mav\+Rendszer::\+add\+Jegy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_jegy}{Jegy}} \texorpdfstring{$\ast$}{*}}]{j}{}\end{DoxyParamCaption})}
+
+
+
+Alacsony szintű segédfüggvény a jegyek dinamikus tömbjének bővítéséhez. Elvégzi a memóriakezelési lépéseket a jegyek mutatótömbjén. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em j} & A hozzáadandó jegy mutatója. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mav_rendszer_a75aca1664c43bb4369e398b0bb3c86c0}\index{MavRendszer@{MavRendszer}!addVonat@{addVonat}}
+\index{addVonat@{addVonat}!MavRendszer@{MavRendszer}}
+\doxysubsubsection{\texorpdfstring{addVonat()}{addVonat()}}
+{\footnotesize\ttfamily \label{class_mav_rendszer_a75aca1664c43bb4369e398b0bb3c86c0} 
+void Mav\+Rendszer::\+add\+Vonat (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*}}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Alacsony szintű segédfüggvény a dinamikus tömb bővítéséhez. Elvégzi a memóriafoglalást, a régi mutatók másolását és a felszabadítást. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em v} & A már létrehozott, hozzáadandó vonat mutatója. \\
+\hline
+\end{DoxyParams}
+
+
+Ez a dokumentáció az osztályról a következő fájlok alapján készült:\+\begin{DoxyCompactItemize}
+\item 
+Mav\+Rendszer.\+h\item 
+\doxymbox{\hyperlink{_mav_rendszer_8cpp}{Mav\+Rendszer.\+cpp}}\end{DoxyCompactItemize}

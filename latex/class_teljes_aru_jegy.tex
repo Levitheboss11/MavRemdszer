@@ -1,0 +1,90 @@
+\doxysection{Teljes\+Aru\+Jegy osztályreferencia}
+\hypertarget{class_teljes_aru_jegy}{}\label{class_teljes_aru_jegy}\index{TeljesAruJegy@{TeljesAruJegy}}
+
+
+Normál, teljes árú jegyet reprezentáló osztály.  
+
+
+
+
+{\ttfamily \+\#include $<$Teljes\+Aru\+Jegy.\+h$>$}
+
+A Teljes\+Aru\+Jegy osztály származási diagramja:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_teljes_aru_jegy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_teljes_aru_jegy_a8b28a64facfd705be92e474229895695}\label{class_teljes_aru_jegy_a8b28a64facfd705be92e474229895695} 
+{\bfseries Teljes\+Aru\+Jegy} (const char \texorpdfstring{$\ast$}{*}nev, \doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*}v, int k, int u)
+\item 
+void \doxymbox{\hyperlink{class_teljes_aru_jegy_af766be8d67ffdb096cd5d3ebf7fe6e05}{listaz}} () const override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_jegy}{Jegy} adatainak kiírása. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_teljes_aru_jegy_a9f3782010b2c6bfb81ad7ca44405646f}{mentes}} (std::\+ostream \&os) const override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_jegy}{Jegy} adatainak mentése fájlba. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Publikus tagfüggvények a(z) \doxymbox{\hyperlink{class_jegy}{Jegy}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27}{Jegy}} (const char \texorpdfstring{$\ast$}{*}nev, \doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*}v, int k, int u)
+\begin{DoxyCompactList}\small\item\em Konstruktor jegy létrehozásához. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Jegy} ()
+\begin{DoxyCompactList}\small\item\em Virtuális destruktor a dinamikus adattagok és heterogén kollekció kezeléséhez. \end{DoxyCompactList}\item 
+bool {\bfseries operator==} (const \doxymbox{\hyperlink{class_jegy}{Jegy}} \&masik) const
+\begin{DoxyCompactList}\small\item\em \doxylink{class_jegy}{Jegy} egyenlőség operator törléshez. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{További örökölt tagok}
+\doxysubsection*{Védett attribútumok a(z) \doxymbox{\hyperlink{class_jegy}{Jegy}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_jegy_ac04e1cf4e046b02acbe74f103290fbd5}{utas\+Nev}}
+\item 
+\doxymbox{\hyperlink{class_vonat}{Vonat}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_jegy_a5f440316186baf9449fee48c36093a82}{vonat}}
+\item 
+int \doxymbox{\hyperlink{class_jegy_ae5d4584c650dbb6ff16a5d64f87abe9c}{kocsi}}
+\item 
+int \doxymbox{\hyperlink{class_jegy_a4d6bab6a19114b75ced0b698249bb80a}{ules}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Részletes leírás}
+Normál, teljes árú jegyet reprezentáló osztály. 
+
+\label{doc-func-members}
+\Hypertarget{class_teljes_aru_jegy_doc-func-members}
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_teljes_aru_jegy_af766be8d67ffdb096cd5d3ebf7fe6e05}\index{TeljesAruJegy@{TeljesAruJegy}!listaz@{listaz}}
+\index{listaz@{listaz}!TeljesAruJegy@{TeljesAruJegy}}
+\doxysubsubsection{\texorpdfstring{listaz()}{listaz()}}
+{\footnotesize\ttfamily \label{class_teljes_aru_jegy_af766be8d67ffdb096cd5d3ebf7fe6e05} 
+void Teljes\+Aru\+Jegy::\+listaz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxylink{class_jegy}{Jegy} adatainak kiírása. 
+
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_jegy_aec265299b3d5049bd4acd7a9c7458466}{Jegy}}.
+
+\Hypertarget{class_teljes_aru_jegy_a9f3782010b2c6bfb81ad7ca44405646f}\index{TeljesAruJegy@{TeljesAruJegy}!mentes@{mentes}}
+\index{mentes@{mentes}!TeljesAruJegy@{TeljesAruJegy}}
+\doxysubsubsection{\texorpdfstring{mentes()}{mentes()}}
+{\footnotesize\ttfamily \label{class_teljes_aru_jegy_a9f3782010b2c6bfb81ad7ca44405646f} 
+void Teljes\+Aru\+Jegy::\+mentes (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{os}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxylink{class_jegy}{Jegy} adatainak mentése fájlba. 
+
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_jegy_a6e397ca345f6d730b307746a4a20d9cd}{Jegy}}.
+
+
+
+Ez a dokumentáció az osztályról a következő fájlok alapján készült:\+\begin{DoxyCompactItemize}
+\item 
+Teljes\+Aru\+Jegy.\+h\item 
+\doxymbox{\hyperlink{_teljes_aru_jegy_8cpp}{Teljes\+Aru\+Jegy.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,32 @@
+\doxysection{Jegy.\+h}
+\hypertarget{_jegy_8h_source}{}\label{_jegy_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ levi2\ on\ 2026.\ 04.\ 27..}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAVRENDSZER\_JEGY\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAVRENDSZER\_JEGY\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Vonat.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27}{Jegy}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_jegy_ac04e1cf4e046b02acbe74f103290fbd5}{utasNev}};}
+\DoxyCodeLine{00017\ \ \ \textcolor{comment}{//\ \ int\ vonatszam;/**<\ A\ vonatszám,\ amire\ a\ jegy\ szól.\ */}}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{class_vonat}{Vonat}}*\ \doxymbox{\hyperlink{class_jegy_a5f440316186baf9449fee48c36093a82}{vonat}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_jegy_ae5d4584c650dbb6ff16a5d64f87abe9c}{kocsi}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_jegy_a4d6bab6a19114b75ced0b698249bb80a}{ules}};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27}{Jegy}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nev,\ \doxymbox{\hyperlink{class_vonat}{Vonat}}*\ v,\ \textcolor{keywordtype}{int}\ k,\ \textcolor{keywordtype}{int}\ u);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_jegy_aa25109e2372b9eab43825b9aa9ae1df6}{\string~Jegy}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_jegy_aec265299b3d5049bd4acd7a9c7458466}{listaz}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_jegy_a6e397ca345f6d730b307746a4a20d9cd}{mentes}}(std::ostream\&\ os)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_jegy_a517848d6dc9dce16089913295c3e02d8}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_jegy_a4c0934601c4644c3bb96a8b9a67e0c27}{Jegy}}\&\ masik)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAVRENDSZER\_JEGY\_H}}
+
+\end{DoxyCode}

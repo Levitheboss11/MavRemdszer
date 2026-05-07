@@ -1,0 +1,38 @@
+\doxysection{Mav\+Rendszer.\+h}
+\hypertarget{_mav_rendszer_8h_source}{}\label{_mav_rendszer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ levi2\ on\ 2026.\ 04.\ 27..}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAVRENDSZER\_MAVRENDSZER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAVRENDSZER\_MAVRENDSZER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Vonat.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Jegy.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_mav_rendszer_ae0018992d93febe9d803acf1ff4203f6}{MavRendszer}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_vonat}{Vonat}}**\ vonatok;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ vonatDb;}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{class_jegy}{Jegy}}**\ jegyek;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ jegyDb;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{class_mav_rendszer_ae0018992d93febe9d803acf1ff4203f6}{MavRendszer}}()\ :\ vonatok(nullptr),\ vonatDb(0),\ jegyek(nullptr),\ jegyDb(0)\ \{\}}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{class_mav_rendszer_a49387b6f80c0be00da4b74eaf24f5934}{\string~MavRendszer}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_aaee4b2ca33898273c882a3c75c83f586}{betoltes}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_aa466831de931a7ece340b92b82925b80}{mentes}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_aeed794b3fa304ddf5493b163219796ab}{ujVonat}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_a78ca10eacd1b2d75a9139ef036c377ae}{jegyKiadas}}();}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_a9be04152a2896a91ef4231bb01650d6d}{menetrendListazas}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_a3adbe208a1e3465b10563ef7012795eb}{jegyekListazasa}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Segédfüggvények\ a\ dinamikus\ tömbökhöz}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_a75aca1664c43bb4369e398b0bb3c86c0}{addVonat}}(\doxymbox{\hyperlink{class_vonat}{Vonat}}*\ v);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_mav_rendszer_afbfa591137da3890273de24c83fdda15}{addJegy}}(\doxymbox{\hyperlink{class_jegy}{Jegy}}*\ j);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ jegyBetoltes();}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAVRENDSZER\_MAVRENDSZER\_H}}
+
+\end{DoxyCode}

@@ -5,7 +5,7 @@
 int main() {
     MavRendszer rendszer;
 
-    // Opcionális: Indításkor töltsük be a korábbi adatokat
+
     rendszer.betoltes();
     rendszer.jegyBetoltes();
     int valasztas = -1;
@@ -20,7 +20,8 @@ int main() {
         std::cout << "Valasztas: ";
 
         if (!(std::cin >> valasztas)) {
-            // Ha valaki betűt írna szám helyett, kitakarítjuk a puffert
+            // Ha valaki betűt írna szám helyett, akkor kitakarítjuk a puffert
+            if (std::cin.eof()) break; // Ha elfogyott a fájl, befejezzük a programot!
             std::cin.clear();
             std::cin.ignore(1000, '\n');
             continue;
@@ -44,7 +45,6 @@ int main() {
                 std::cout << "Adatok elmentve." << std::endl;
                 break;
             case 0:
-                // Kilépés előtt automatikus mentés (opcionális)
                 rendszer.mentes();
                 std::cout << "Kilépés..." << std::endl;
                 break;

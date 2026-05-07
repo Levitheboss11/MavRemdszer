@@ -1,0 +1,189 @@
+\doxysection{Vonat osztályreferencia}
+\hypertarget{class_vonat}{}\label{class_vonat}\index{Vonat@{Vonat}}
+
+
+Absztrakt alaposztály a különböző vonattípusok (IC, Személy) kezeléséhez.  
+
+
+
+
+{\ttfamily \+\#include $<$Vonat.\+h$>$}
+
+A Vonat osztály származási diagramja:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_vonat}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}} (int szam, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}, const char \texorpdfstring{$\ast$}{*}ind, const char \texorpdfstring{$\ast$}{*}erk)
+\begin{DoxyCompactList}\small\item\em Konstruktor a vonat alap adatainak beállításához. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vonat_a6ce461ef29fb99ecd9c1290526167aa8}{Vonat}} (const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&masik)
+\begin{DoxyCompactList}\small\item\em Másoló konstruktor nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. \end{DoxyCompactList}\item 
+\Hypertarget{class_vonat_a578ae976883512e3cf7ac3840e21a3c2}\label{class_vonat_a578ae976883512e3cf7ac3840e21a3c2} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vonat} ()
+\begin{DoxyCompactList}\small\item\em Virtuális destruktor. Gondoskodik a heterogén kollekcióban tárolt objektumok helyes felszabadításáról. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vonat}{Vonat}} \& \doxymbox{\hyperlink{class_vonat_aaa482cb85ca767b5c7753257dabfbd9e}{operator=}} (const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&masik)
+\begin{DoxyCompactList}\small\item\em Érték adó nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. \end{DoxyCompactList}\item 
+\Hypertarget{class_vonat_a927199380b78bdecfd862a0762a7e719}\label{class_vonat_a927199380b78bdecfd862a0762a7e719} 
+int {\bfseries get\+Vonatszam} () const
+\item 
+\Hypertarget{class_vonat_a922ea7ef867ac087fc1b1adf314b9021}\label{class_vonat_a922ea7ef867ac087fc1b1adf314b9021} 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+Honnan} () const
+\item 
+\Hypertarget{class_vonat_a374358c27a68ef20d2dac95c802d1dbf}\label{class_vonat_a374358c27a68ef20d2dac95c802d1dbf} 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+Hova} () const
+\item 
+virtual void \doxymbox{\hyperlink{class_vonat_a19586d003e388fba3c824aa005c4278e}{listaz}} () const =0
+\begin{DoxyCompactList}\small\item\em \doxylink{class_vonat}{Vonat} adatainak listázása a képernyőre. Tiszta virtuális függvény, minden leszármazott máshogy valósítja meg. \end{DoxyCompactList}\item 
+\Hypertarget{class_vonat_ae1ce3d32a9fd7c2119363e2d4ad6413e}\label{class_vonat_ae1ce3d32a9fd7c2119363e2d4ad6413e} 
+virtual void {\bfseries mentes} (std::\+ostream \&os) const =0
+\item 
+virtual bool \doxymbox{\hyperlink{class_vonat_aa885a7ad7959532559b84e8077c972f6}{helyet\+Foglal}} (int \&k, int \&u)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Védett attribútumok}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c}{vonatszam}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_a0384ba9da9a61c2e3fc1ec6bd35e4925}{indulas}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_ab25b618d8078c99f87ab3b83721faac6}{erkezes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Részletes leírás}
+Absztrakt alaposztály a különböző vonattípusok (IC, Személy) kezeléséhez. 
+
+\label{doc-constructors}
+\Hypertarget{class_vonat_doc-constructors}
+\doxysubsection{Konstruktorok és destruktorok dokumentációja}
+\Hypertarget{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}\index{Vonat@{Vonat}!Vonat@{Vonat}}
+\index{Vonat@{Vonat}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{Vonat()}{Vonat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82} 
+Vonat::\+\+Vonat (\begin{DoxyParamCaption}\item[{int}]{szam}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{honnan}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{hova}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{ind}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{erk}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor a vonat alap adatainak beállításához. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em szam} & Vonatszám. \\
+\hline
+{\em \doxylink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}} & Indulási állomás. \\
+\hline
+{\em \doxylink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}} & Érkezési állomás. \\
+\hline
+{\em ind} & Indulási időpont (ÉÉÉÉ.\+HH.\+NN ÓÓ:\+PP). \\
+\hline
+{\em erk} & Érkezési időpont (ÉÉÉÉ.\+HH.\+NN ÓÓ:\+PP). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vonat_a6ce461ef29fb99ecd9c1290526167aa8}\index{Vonat@{Vonat}!Vonat@{Vonat}}
+\index{Vonat@{Vonat}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{Vonat()}{Vonat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vonat_a6ce461ef29fb99ecd9c1290526167aa8} 
+Vonat::\+\+Vonat (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&}]{masik}{}\end{DoxyParamCaption})}
+
+
+
+Másoló konstruktor nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em masik} & \doxylink{class_vonat}{Vonat} referencia \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_vonat_doc-func-members}
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_vonat_aa885a7ad7959532559b84e8077c972f6}\index{Vonat@{Vonat}!helyetFoglal@{helyetFoglal}}
+\index{helyetFoglal@{helyetFoglal}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{helyetFoglal()}{helyetFoglal()}}
+{\footnotesize\ttfamily \label{class_vonat_aa885a7ad7959532559b84e8077c972f6} 
+virtual bool Vonat::\+helyet\+Foglal (\begin{DoxyParamCaption}\item[{int \&}]{k}{, }\item[{int \&}]{u}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Megvalósítják a következők:\+ \doxymbox{\hyperlink{class_inter_city_aa1390a3de5fc640209d30ce3a3640f00}{Inter\+City}} és \doxymbox{\hyperlink{class_szemelyvonat_adcd336535625da4e6c9a40fd5f9bb7aa}{Szemelyvonat}}.
+
+\Hypertarget{class_vonat_a19586d003e388fba3c824aa005c4278e}\index{Vonat@{Vonat}!listaz@{listaz}}
+\index{listaz@{listaz}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{listaz()}{listaz()}}
+{\footnotesize\ttfamily \label{class_vonat_a19586d003e388fba3c824aa005c4278e} 
+virtual void Vonat::\+listaz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\doxylink{class_vonat}{Vonat} adatainak listázása a képernyőre. Tiszta virtuális függvény, minden leszármazott máshogy valósítja meg. 
+
+
+
+Megvalósítják a következők:\+ \doxymbox{\hyperlink{class_inter_city_a8ea1ac150752ab12cf932874101bffee}{Inter\+City}} és \doxymbox{\hyperlink{class_szemelyvonat_a2b8286684d9e0ec1e976723a3ec415c9}{Szemelyvonat}}.
+
+\Hypertarget{class_vonat_aaa482cb85ca767b5c7753257dabfbd9e}\index{Vonat@{Vonat}!operator=@{operator=}}
+\index{operator=@{operator=}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_vonat_aaa482cb85ca767b5c7753257dabfbd9e} 
+\doxymbox{\hyperlink{class_vonat}{Vonat}} \& Vonat::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&}]{masik}{}\end{DoxyParamCaption})}
+
+
+
+Érték adó nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em masik} & \doxylink{class_vonat}{Vonat} referencia \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_vonat_doc-variable-members}
+\doxysubsection{Adattagok dokumentációja}
+\Hypertarget{class_vonat_ab25b618d8078c99f87ab3b83721faac6}\index{Vonat@{Vonat}!erkezes@{erkezes}}
+\index{erkezes@{erkezes}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{erkezes}{erkezes}}
+{\footnotesize\ttfamily \label{class_vonat_ab25b618d8078c99f87ab3b83721faac6} 
+char\texorpdfstring{$\ast$}{*} Vonat::\+erkezes\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indulási időpont ÉÉÉÉ.\+HH.\+NN ÓÓ:\+PP \Hypertarget{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}\index{Vonat@{Vonat}!honnan@{honnan}}
+\index{honnan@{honnan}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{honnan}{honnan}}
+{\footnotesize\ttfamily \label{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1} 
+char\texorpdfstring{$\ast$}{*} Vonat::\+honnan\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indulási állomás neve. \Hypertarget{class_vonat_a4df8268b13312f9e91e8088007e09a74}\index{Vonat@{Vonat}!hova@{hova}}
+\index{hova@{hova}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{hova}{hova}}
+{\footnotesize\ttfamily \label{class_vonat_a4df8268b13312f9e91e8088007e09a74} 
+char\texorpdfstring{$\ast$}{*} Vonat::\+hova\hspace{0.3cm}{\ttfamily [protected]}}
+
+Cél állomás neve. \Hypertarget{class_vonat_a0384ba9da9a61c2e3fc1ec6bd35e4925}\index{Vonat@{Vonat}!indulas@{indulas}}
+\index{indulas@{indulas}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{indulas}{indulas}}
+{\footnotesize\ttfamily \label{class_vonat_a0384ba9da9a61c2e3fc1ec6bd35e4925} 
+char\texorpdfstring{$\ast$}{*} Vonat::\+indulas\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indulási időpont (ÉÉÉÉ.\+HH.\+NN ÓÓ:\+PP) \Hypertarget{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c}\index{Vonat@{Vonat}!vonatszam@{vonatszam}}
+\index{vonatszam@{vonatszam}!Vonat@{Vonat}}
+\doxysubsubsection{\texorpdfstring{vonatszam}{vonatszam}}
+{\footnotesize\ttfamily \label{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c} 
+int Vonat::\+vonatszam\hspace{0.3cm}{\ttfamily [protected]}}
+
+A vonat egyedi 4 jegyű azonosítója. 
+
+Ez a dokumentáció az osztályról a következő fájlok alapján készült:\+\begin{DoxyCompactItemize}
+\item 
+Vonat.\+h\item 
+\doxymbox{\hyperlink{_vonat_8cpp}{Vonat.\+cpp}}\end{DoxyCompactItemize}

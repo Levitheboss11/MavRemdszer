@@ -13,14 +13,14 @@
 InterCity::InterCity(int szam,const char* honnan, const char* hova,const char* ind,const char* erk, int k, int u)
     : Vonat(szam, honnan, hova, ind, erk), kocsikSzama(k), ulesekSzama(u) {
 
-    //elöször foglalás
+    // Elöször a foglalása a mátrixnak
     ulesRend = new bool*[kocsikSzama];
 
-    //minden kocsihoz lefoglaljuk az üléseket
+    // Minden kocsihoz lefoglaljuk az üléseket
     for (int i = 0; i < kocsikSzama; i++) {
         ulesRend[i] = new bool[u];
         for (int j = 0; j < u; j++) {
-            //kezdetben minden ülés szabad ezért false
+            // Kezdetben minden ülés szabad ezért az értéke false
             ulesRend[i][j] = false;
         }
     }
@@ -28,11 +28,11 @@ InterCity::InterCity(int szam,const char* honnan, const char* hova,const char* i
 
 InterCity::~InterCity() {
     if (ulesRend!=nullptr) {
-        //minden egyes kocsi törlése
+        // Minden egyes kocsinak a törlése
         for (int i = 0; i < kocsikSzama; ++i) {
             delete[] ulesRend[i];
         }
-        //Végül a mutatók fő tömbjét
+        // Végül a mutatóknak fő tömbjét is töröljük
         delete[] ulesRend;
     }
 
@@ -42,7 +42,7 @@ void InterCity::listaz() const {
     std::cout << "[" << vonatszam << "] IC: " << honnan << " -> " << hova << std::endl;
     std::cout << "   Indulas: " << indulas << " | Erkezes: " << erkezes << std::endl;
 
-    // Számoljuk meg a szabad helyeket
+    // Szabad helyek számolása
     int szabad = 0;
     for (int i = 0; i < kocsikSzama; ++i) {
         for (int j = 0; j < ulesekSzama; ++j) {
@@ -57,9 +57,7 @@ void InterCity::mentes(std::ostream& os) const {
     os << "I;" << vonatszam << ";" << honnan << ";" << hova << ";"
        << indulas << ";" << erkezes << ";"
        << kocsikSzama << ";" << ulesekSzama << std::endl;
-    // Megjegyzés: Ha el akarod menteni a konkrét foglalásokat is,
-    // azt egy külön ciklussal a sor végére teheted, de alapfeladatnál
-    // elég lehet a vonat adatait menteni.
+
 }
 bool InterCity::helyetFoglal(int& k, int& s) {
     for (int i = 0; i < kocsikSzama; ++i) {

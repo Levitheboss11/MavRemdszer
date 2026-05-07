@@ -11,12 +11,6 @@
 #include <cstring>
 #include "memtrace.h"
 #include "KedvezmenyesJegy.h"
-/**
- * @file KedvezmenyesJegy.cpp
- * @author Tóth Levente István (VK0QG4)
- * @brief KedvezmenyesJegy osztály megvalósítása
- * @date 2026-04-27
- */
 KedvezmenyesJegy::KedvezmenyesJegy(const char* nev, Vonat* v, int k, int u, const char* igSzam)
     : Jegy(nev, v, k, u) {
 
@@ -29,7 +23,7 @@ KedvezmenyesJegy::KedvezmenyesJegy(const char* nev, Vonat* v, int k, int u, cons
 }
 
 KedvezmenyesJegy::~KedvezmenyesJegy() {
-    //vitualis destruk miatt behivodik a ~Jegy destruktora is.
+    // Vitualis destruktor miatt meghívódik a ~Jegy destruktora is.
     delete[] this->igazolvanySzam;
 }
 

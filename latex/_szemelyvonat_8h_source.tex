@@ -1,0 +1,27 @@
+\doxysection{Szemelyvonat.\+h}
+\hypertarget{_szemelyvonat_8h_source}{}\label{_szemelyvonat_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ levi2\ on\ 2026.\ 04.\ 27..}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAVRENDSZER\_SZEMELYVONAT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAVRENDSZER\_SZEMELYVONAT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Vonat.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }Szemelyvonat\ :\textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ osszKapacitas;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ jelenlegiUtasok;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ Szemelyvonat(\textcolor{keywordtype}{int}\ szam,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ind,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ erk,\ \textcolor{keywordtype}{int}\ kap);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_szemelyvonat_a2b8286684d9e0ec1e976723a3ec415c9}{listaz}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ mentes(std::ostream\&\ os)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_szemelyvonat_adcd336535625da4e6c9a40fd5f9bb7aa}{helyetFoglal}}(\textcolor{keywordtype}{int}\&\ k,\ \textcolor{keywordtype}{int}\&\ u)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAVRENDSZER\_SZEMELYVONAT\_H}}
+
+\end{DoxyCode}

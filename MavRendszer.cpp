@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <cctype>
 #include  <cstdlib>
 #include "memtrace.h"
 #include "MavRendszer.h"
@@ -21,10 +22,11 @@
 int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000) {
     int szam;
     while (true) {
-        std::cout << prompt;
+        if (!(std::cout << prompt)) return min; // Biztonsági kilépés
         if (std::cin >> szam && szam >= min && szam <= max) {
             return szam; // Sikeres a beolvasás és benne van a tartományban
         } else {
+            if (std::cin.eof()) return min;
             std::cout << "Hiba! Kerlek adj meg egy ervenyes szamot (" << min << "-" << max << ")." << std::endl;
             std::cin.clear(); // Hibaflag törlése
             std::cin.ignore(1000, '\n'); // Maradéknak a kidobása a pufferből
@@ -40,6 +42,21 @@ bool ervenyesIdoformatum(const char* ido) {
         return false;
 
     return true;
+}
+//Ervenyes hely megnéző segéd fügvény
+bool ervenyesNev(const char* nev) {
+    int hossz = strlen(nev);
+    if (hossz < 2) return false; // Ha túl rövid (pl. egy üres sor vagy csak egy betű)
+
+    bool vanBenneBetu = false;
+    for (int i = 0; i < hossz; ++i) {
+        if (isalpha((unsigned char)nev[i])) {
+            vanBenneBetu = true;
+            break;
+        }
+    }
+    // Ha van benne legalább egy betű, elfogadjuk (így maradhat akár a kötőjel vagy a szóköz)
+    return vanBenneBetu;
 }
 MavRendszer::~MavRendszer() {
     // 6.4 Memória felszabadítása
@@ -83,10 +100,18 @@ void MavRendszer::ujVonat() {
     szam = szamotBeolvas("Vonatszam: ", 1, 99999);
     //Az enter miatt kell cin.ignore
     std::cin.ignore(1000, '\n');
-    std::cout << "Honnan: ";
-    std::cin.getline(honnan, 100);
-    std::cout << "Hova: ";
-    std::cin.getline(hova, 100);
+    while (true) {
+        std::cout << "Honnan: ";
+        std::cin.getline(honnan, 100);
+        if (ervenyesNev(honnan)) break;
+        std::cout << "Hiba! Kerlek adj meg egy ervenyes varosnevet!" << std::endl;
+    }
+    while (true) {
+        std::cout << "Hova: ";
+        std::cin.getline(hova, 100);
+        if (ervenyesNev(hova)) break;
+        std::cout << "Hiba! Kerlek adj meg egy ervenyes varosnevet!" << std::endl;
+    }
     while (true) {
         std::cout << "Indulas (EEEE.HH.NN-OO:PP): ";
         std::cin.getline(ind, 20);
@@ -100,7 +125,15 @@ void MavRendszer::ujVonat() {
         std::cout << "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!" << std::endl;
     }
 
-
+    while (strcmp(ind, erk) >= 0) {
+        std::cout << "Hiba: Az erkezesnek kesobb kell lennie, mint az indulasnak!" << std::endl;
+        while (true) {
+            std::cout << "Uj erkezes (EEEE.HH.NN-OO:PP): ";
+            std::cin.getline(erk, 20);
+            if (ervenyesIdoformatum(erk)) break;
+            std::cout << "Hiba! Kerlek hasznald a pontos formatumot!" << std::endl;
+        }
+    }
     if (tipus == 1) {
         int k = szamotBeolvas("Kocsik szama: ", 1, 20);
         int u = szamotBeolvas("Ulesek kocsiankent: ", 1, 100);
@@ -108,11 +141,11 @@ void MavRendszer::ujVonat() {
     } else {
         addVonat(new Szemelyvonat(szam, honnan, hova, ind, erk, 200));
     }
+
 }
 void MavRendszer::jegyKiadas() {
     // Vonat kiválasztása
     std::cout << "--- Jegyvasarlas ---" << std::endl;
-    std::cout << "Adja meg a vonat szamat: ";
 
     int vSzam = szamotBeolvas("Adja meg a vonat szamat: ", 1, 99999);
 
@@ -145,21 +178,29 @@ void MavRendszer::jegyKiadas() {
     // Bemeneti puffert kitísztítása a korábbi cin-ek után
     std::cin.ignore(1000, '\n');
 
-    std::cout << "Utas neve: ";
-    std::cin.getline(nev, 100);
+    while (true) {
+        std::cout << "Utas neve: ";
+        std::cin.getline(nev, 100);
+        if (ervenyesNev(nev)) break;
+        std::cout << "Hiba! Kerlek adj meg egy ervenyes nevet (legalabb 2 karakter, betuket tartalmazzon)!" << std::endl;
+    }
 
     do {
         std::cout << "Kedvezmenyes jegy? (i/n): ";
         std::cin >> valasz;
         valasz = tolower(valasz); // Kisbetűvé alakítás, mert így könnyebb kezelni
     } while (valasz != 'i' && valasz != 'n');
+    std::cin.ignore(1000, '\n'); // Előző karakterek takarítása
 
     // Jegy példányosítása és hozzáadása
     if (valasz == 'i' || valasz == 'I') {
         char igazolvany[30];
-        std::cout << "Igazolvany szama: ";
-        std::cin.ignore(1000, '\n'); // Előző karakterek takarítása
-        std::cin.getline(igazolvany, 30); // Így nem fogja tudni túlírni a tömböt
+        while (true) {
+            std::cout << "Igazolvany szama: ";
+            std::cin.getline(igazolvany, 30);
+            if (strlen(igazolvany) >= 3) break; // Minimum 3 karakternek kell lennie
+            std::cout << "Hiba! Az igazolvanyszam tul rovid!" << std::endl;
+        }
 
         // Kedvezményes jegy létrehozása
         // A k, u értékeket a helyetFoglal már beállította (IC esetén > 0)
@@ -176,6 +217,7 @@ void MavRendszer::jegyKiadas() {
     if (kocsi > 0) {
         std::cout << "Lefoglalt hely: " << kocsi << ". kocsi, " << ules << ". ules" << std::endl;
     }
+
 }
 
 void MavRendszer::menetrendListazas() const {

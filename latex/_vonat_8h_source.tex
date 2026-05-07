@@ -1,0 +1,37 @@
+\doxysection{Vonat.\+h}
+\hypertarget{_vonat_8h_source}{}\label{_vonat_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ levi2\ on\ 2026.\ 04.\ 27..}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAVRENDSZER\_VONAT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAVRENDSZER\_VONAT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c}{vonatszam}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_a0384ba9da9a61c2e3fc1ec6bd35e4925}{indulas}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_ab25b618d8078c99f87ab3b83721faac6}{erkezes}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}(\textcolor{keywordtype}{int}\ szam,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}},\textcolor{keyword}{const}\ \ \textcolor{keywordtype}{char}*\ ind,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ erk);}
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}\&\ masik);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{class_vonat_a578ae976883512e3cf7ac3840e21a3c2}{\string~Vonat}}()\ ;}
+\DoxyCodeLine{00044\ \ \ \ \ \doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}\&\ \doxymbox{\hyperlink{class_vonat_aaa482cb85ca767b5c7753257dabfbd9e}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}}\&\ masik);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ getVonatszam()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c}{vonatszam}};\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{char}*\ getHonnan()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}};\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{char}*\ getHova()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}};\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vonat_a19586d003e388fba3c824aa005c4278e}{listaz}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ mentes(std::ostream\&\ os)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ helyetFoglal(\textcolor{keywordtype}{int}\&\ k,\ \textcolor{keywordtype}{int}\&\ u)\ =\ 0;}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAVRENDSZER\_VONAT\_H}}
+
+\end{DoxyCode}

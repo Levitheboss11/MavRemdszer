@@ -1,0 +1,103 @@
+\doxysection{Szemelyvonat osztályreferencia}
+\hypertarget{class_szemelyvonat}{}\label{class_szemelyvonat}\index{Szemelyvonat@{Szemelyvonat}}
+A Szemelyvonat osztály származási diagramja:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_szemelyvonat}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_szemelyvonat_a61e9516c1aa172b3879a7be135fee726}\label{class_szemelyvonat_a61e9516c1aa172b3879a7be135fee726} 
+{\bfseries Szemelyvonat} (int szam, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}, const char \texorpdfstring{$\ast$}{*}ind, const char \texorpdfstring{$\ast$}{*}erk, int kap)
+\item 
+void \doxymbox{\hyperlink{class_szemelyvonat_a2b8286684d9e0ec1e976723a3ec415c9}{listaz}} () const override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_vonat}{Vonat} adatainak listázása a képernyőre. Tiszta virtuális függvény, minden leszármazott máshogy valósítja meg. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_szemelyvonat_a9716fe95e6e8ec58db5893af29683c76}{mentes}} (std::\+ostream \&os) const override
+\item 
+bool \doxymbox{\hyperlink{class_szemelyvonat_adcd336535625da4e6c9a40fd5f9bb7aa}{helyet\+Foglal}} (int \&k, int \&u) override
+\begin{DoxyCompactList}\small\item\em Személyvonat esetén nincs fix helyfoglalás. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Publikus tagfüggvények a(z) \doxymbox{\hyperlink{class_vonat}{Vonat}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}} (int szam, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}, const char \texorpdfstring{$\ast$}{*}ind, const char \texorpdfstring{$\ast$}{*}erk)
+\begin{DoxyCompactList}\small\item\em Konstruktor a vonat alap adatainak beállításához. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vonat_a6ce461ef29fb99ecd9c1290526167aa8}{Vonat}} (const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&masik)
+\begin{DoxyCompactList}\small\item\em Másoló konstruktor nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vonat} ()
+\begin{DoxyCompactList}\small\item\em Virtuális destruktor. Gondoskodik a heterogén kollekcióban tárolt objektumok helyes felszabadításáról. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vonat}{Vonat}} \& \doxymbox{\hyperlink{class_vonat_aaa482cb85ca767b5c7753257dabfbd9e}{operator=}} (const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&masik)
+\begin{DoxyCompactList}\small\item\em Érték adó nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. \end{DoxyCompactList}\item 
+int {\bfseries get\+Vonatszam} () const
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+Honnan} () const
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+Hova} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{További örökölt tagok}
+\doxysubsection*{Védett attribútumok a(z) \doxymbox{\hyperlink{class_vonat}{Vonat}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c}{vonatszam}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_a0384ba9da9a61c2e3fc1ec6bd35e4925}{indulas}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_ab25b618d8078c99f87ab3b83721faac6}{erkezes}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_szemelyvonat_doc-func-members}
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_szemelyvonat_adcd336535625da4e6c9a40fd5f9bb7aa}\index{Szemelyvonat@{Szemelyvonat}!helyetFoglal@{helyetFoglal}}
+\index{helyetFoglal@{helyetFoglal}!Szemelyvonat@{Szemelyvonat}}
+\doxysubsubsection{\texorpdfstring{helyetFoglal()}{helyetFoglal()}}
+{\footnotesize\ttfamily \label{class_szemelyvonat_adcd336535625da4e6c9a40fd5f9bb7aa} 
+bool Szemelyvonat::\+helyet\+Foglal (\begin{DoxyParamCaption}\item[{int \&}]{k}{, }\item[{int \&}]{u}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Személyvonat esetén nincs fix helyfoglalás. 
+
+\begin{DoxyReturn}{Visszatérési érték}
+Mindig true-\/t ad vissza, ha van még szabad kapacitás. 
+\end{DoxyReturn}
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_vonat}{Vonat}}.
+
+\Hypertarget{class_szemelyvonat_a2b8286684d9e0ec1e976723a3ec415c9}\index{Szemelyvonat@{Szemelyvonat}!listaz@{listaz}}
+\index{listaz@{listaz}!Szemelyvonat@{Szemelyvonat}}
+\doxysubsubsection{\texorpdfstring{listaz()}{listaz()}}
+{\footnotesize\ttfamily \label{class_szemelyvonat_a2b8286684d9e0ec1e976723a3ec415c9} 
+void Szemelyvonat::\+listaz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxylink{class_vonat}{Vonat} adatainak listázása a képernyőre. Tiszta virtuális függvény, minden leszármazott máshogy valósítja meg. 
+
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_vonat_a19586d003e388fba3c824aa005c4278e}{Vonat}}.
+
+\Hypertarget{class_szemelyvonat_a9716fe95e6e8ec58db5893af29683c76}\index{Szemelyvonat@{Szemelyvonat}!mentes@{mentes}}
+\index{mentes@{mentes}!Szemelyvonat@{Szemelyvonat}}
+\doxysubsubsection{\texorpdfstring{mentes()}{mentes()}}
+{\footnotesize\ttfamily \label{class_szemelyvonat_a9716fe95e6e8ec58db5893af29683c76} 
+void Szemelyvonat::\+mentes (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{os}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_vonat}{Vonat}}.
+
+
+
+Ez a dokumentáció az osztályról a következő fájlok alapján készült:\+\begin{DoxyCompactItemize}
+\item 
+Szemelyvonat.\+h\item 
+\doxymbox{\hyperlink{_szemelyvonat_8cpp}{Szemelyvonat.\+cpp}}\end{DoxyCompactItemize}

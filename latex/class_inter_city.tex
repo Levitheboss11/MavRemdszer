@@ -1,0 +1,159 @@
+\doxysection{Inter\+City osztályreferencia}
+\hypertarget{class_inter_city}{}\label{class_inter_city}\index{InterCity@{InterCity}}
+
+
+\doxylink{class_inter_city}{Inter\+City} vonatokat reprezentáló osztály. Összetett helyfoglalási logikát valósít meg egy dinamikus mátrix segítségével.  
+
+
+
+
+{\ttfamily \+\#include $<$Inter\+City.\+h$>$}
+
+Az Inter\+City osztály származási diagramja:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_inter_city}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_inter_city_afdb7dbe8929e01adb22db5cd33715bfc}{Inter\+City}} (int szam, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}, const char \texorpdfstring{$\ast$}{*}ind, const char \texorpdfstring{$\ast$}{*}erk, int k, int u)
+\begin{DoxyCompactList}\small\item\em Konstruktor \doxylink{class_inter_city}{Inter\+City} vonat létrehozásához. \end{DoxyCompactList}\item 
+\Hypertarget{class_inter_city_a50242c084b64c7fa6f2dcae977f771e4}\label{class_inter_city_a50242c084b64c7fa6f2dcae977f771e4} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Inter\+City} ()
+\begin{DoxyCompactList}\small\item\em Destruktor az ules\+Rend mátrix felszabadításához. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_inter_city_a8ea1ac150752ab12cf932874101bffee}{listaz}} () const override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_vonat}{Vonat} adatainak listázása a képernyőre. Tiszta virtuális függvény, minden leszármazott máshogy valósítja meg. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_inter_city_acd523e0ae150c05dc9b5417cafc0affa}{mentes}} (std::\+ostream \&os) const override
+\item 
+bool \doxymbox{\hyperlink{class_inter_city_aa1390a3de5fc640209d30ce3a3640f00}{helyet\+Foglal}} (int \&k, int \&s) override
+\begin{DoxyCompactList}\small\item\em Helyfoglalás megvalósítása IC vonaton. Megkeresi az első szabad helyet (kocsi, ülés). \end{DoxyCompactList}\item 
+\Hypertarget{class_inter_city_a0c8f35474aef0d382defc7c2c54a8163}\label{class_inter_city_a0c8f35474aef0d382defc7c2c54a8163} 
+void {\bfseries foglalat\+Beallit} (int k, int s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Publikus tagfüggvények a(z) \doxymbox{\hyperlink{class_vonat}{Vonat}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_vonat_a68f5b2cf0b0bd677679f2a405263cb82}{Vonat}} (int szam, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}, const char \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}, const char \texorpdfstring{$\ast$}{*}ind, const char \texorpdfstring{$\ast$}{*}erk)
+\begin{DoxyCompactList}\small\item\em Konstruktor a vonat alap adatainak beállításához. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vonat_a6ce461ef29fb99ecd9c1290526167aa8}{Vonat}} (const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&masik)
+\begin{DoxyCompactList}\small\item\em Másoló konstruktor nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vonat} ()
+\begin{DoxyCompactList}\small\item\em Virtuális destruktor. Gondoskodik a heterogén kollekcióban tárolt objektumok helyes felszabadításáról. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vonat}{Vonat}} \& \doxymbox{\hyperlink{class_vonat_aaa482cb85ca767b5c7753257dabfbd9e}{operator=}} (const \doxymbox{\hyperlink{class_vonat}{Vonat}} \&masik)
+\begin{DoxyCompactList}\small\item\em Érték adó nem feltétlen szükséges, mivel minden vonat egyedi, de a biztonság miatt. \end{DoxyCompactList}\item 
+int {\bfseries get\+Vonatszam} () const
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+Honnan} () const
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+Hova} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{További örökölt tagok}
+\doxysubsection*{Védett attribútumok a(z) \doxymbox{\hyperlink{class_vonat}{Vonat}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_vonat_a3f1abe494b399eb6ef5421e5f4569e6c}{vonatszam}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_a0384ba9da9a61c2e3fc1ec6bd35e4925}{indulas}}
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vonat_ab25b618d8078c99f87ab3b83721faac6}{erkezes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Részletes leírás}
+\doxylink{class_inter_city}{Inter\+City} vonatokat reprezentáló osztály. Összetett helyfoglalási logikát valósít meg egy dinamikus mátrix segítségével. 
+
+\label{doc-constructors}
+\Hypertarget{class_inter_city_doc-constructors}
+\doxysubsection{Konstruktorok és destruktorok dokumentációja}
+\Hypertarget{class_inter_city_afdb7dbe8929e01adb22db5cd33715bfc}\index{InterCity@{InterCity}!InterCity@{InterCity}}
+\index{InterCity@{InterCity}!InterCity@{InterCity}}
+\doxysubsubsection{\texorpdfstring{InterCity()}{InterCity()}}
+{\footnotesize\ttfamily \label{class_inter_city_afdb7dbe8929e01adb22db5cd33715bfc} 
+Inter\+City::\+\+Inter\+City (\begin{DoxyParamCaption}\item[{int}]{szam}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{honnan}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{hova}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{ind}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{erk}{, }\item[{int}]{k}{, }\item[{int}]{u}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor \doxylink{class_inter_city}{Inter\+City} vonat létrehozásához. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em szam} & Vonatszám. \\
+\hline
+{\em \doxylink{class_vonat_ac87b4b76b153f27da245ad56b9e4fbf1}{honnan}} & Induló állomás. \\
+\hline
+{\em \doxylink{class_vonat_a4df8268b13312f9e91e8088007e09a74}{hova}} & Célállomás. \\
+\hline
+{\em ind} & Indulási idő. \\
+\hline
+{\em erk} & Érkezési idő. \\
+\hline
+{\em k} & Kocsik száma. \\
+\hline
+{\em u} & Ülések száma kocsinként. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_inter_city_doc-func-members}
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_inter_city_aa1390a3de5fc640209d30ce3a3640f00}\index{InterCity@{InterCity}!helyetFoglal@{helyetFoglal}}
+\index{helyetFoglal@{helyetFoglal}!InterCity@{InterCity}}
+\doxysubsubsection{\texorpdfstring{helyetFoglal()}{helyetFoglal()}}
+{\footnotesize\ttfamily \label{class_inter_city_aa1390a3de5fc640209d30ce3a3640f00} 
+bool Inter\+City::\+helyet\+Foglal (\begin{DoxyParamCaption}\item[{int \&}]{k}{, }\item[{int \&}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Helyfoglalás megvalósítása IC vonaton. Megkeresi az első szabad helyet (kocsi, ülés). 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em k} & Ide kerül a kiosztott kocsiszám. \\
+\hline
+{\em u} & Ide kerül a kiosztott ülésszám. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Visszatérési érték}
+True, ha sikerült helyet foglalni, egyébként false. 
+\end{DoxyReturn}
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_vonat}{Vonat}}.
+
+\Hypertarget{class_inter_city_a8ea1ac150752ab12cf932874101bffee}\index{InterCity@{InterCity}!listaz@{listaz}}
+\index{listaz@{listaz}!InterCity@{InterCity}}
+\doxysubsubsection{\texorpdfstring{listaz()}{listaz()}}
+{\footnotesize\ttfamily \label{class_inter_city_a8ea1ac150752ab12cf932874101bffee} 
+void Inter\+City::\+listaz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxylink{class_vonat}{Vonat} adatainak listázása a képernyőre. Tiszta virtuális függvény, minden leszármazott máshogy valósítja meg. 
+
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_vonat_a19586d003e388fba3c824aa005c4278e}{Vonat}}.
+
+\Hypertarget{class_inter_city_acd523e0ae150c05dc9b5417cafc0affa}\index{InterCity@{InterCity}!mentes@{mentes}}
+\index{mentes@{mentes}!InterCity@{InterCity}}
+\doxysubsubsection{\texorpdfstring{mentes()}{mentes()}}
+{\footnotesize\ttfamily \label{class_inter_city_acd523e0ae150c05dc9b5417cafc0affa} 
+void Inter\+City::\+mentes (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{os}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Megvalósítja a következőket:\+ \doxymbox{\hyperlink{class_vonat}{Vonat}}.
+
+
+
+Ez a dokumentáció az osztályról a következő fájlok alapján készült:\+\begin{DoxyCompactItemize}
+\item 
+Inter\+City.\+h\item 
+\doxymbox{\hyperlink{_inter_city_8cpp}{Inter\+City.\+cpp}}\end{DoxyCompactItemize}
