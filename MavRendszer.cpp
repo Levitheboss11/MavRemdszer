@@ -18,7 +18,7 @@
  * @brief A Mavrendszer osztály megvalósítása
  * @date 2026-04-27
  */
-//segéd függvények a beolvasásokhoz
+// Segéd függvények a beolvasásokhoz
 int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000) {
     int szam;
     while (true) {
@@ -33,6 +33,21 @@ int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000) {
         }
     }
 }
+// Segédfüggvény az igazolvány ellenőrzéséhez
+bool ervenyesIgazolvany(const char* ig) {
+    return strlen(ig) >= 3;
+}
+
+// Segédfüggvény a szövegbeolvasásához és a validációhoz
+void szovegetBeolvas(const char* prompt, char* buffer, int maxLen, bool (*validator)(const char*), const char* hibaUzenet) {
+    while (true) {
+        std::cout << prompt;
+        std::cin.getline(buffer, maxLen);
+        if (validator(buffer)) break;
+        std::cout << hibaUzenet << std::endl;
+    }
+}
+
 bool ervenyesIdoformatum(const char* ido) {
     // Egyszerű ellenőrzés: 2026.04.27-14:30 -> ez 16 karakter
     if (strlen(ido) != 16) return false;
@@ -90,50 +105,24 @@ void MavRendszer::addJegy(Jegy* j) {
     jegyDb++;
 }
 void MavRendszer::ujVonat() {
-    int tipus, szam;
+    int tipus = szamotBeolvas("Tipus (1: IC, 2: Szemely): ", 1, 2);
+    int szam = szamotBeolvas("Vonatszam: ", 1, 99999);
+
+    std::cin.ignore(1000, '\n'); // Enter takarítása
+
     char honnan[100], hova[100], ind[20], erk[20];
 
-    // Típus ellenőrzése (csak 1 vagy 2 lehet)
-    tipus = szamotBeolvas("Tipus (1: IC, 2: Szemely): ", 1, 2);
-
-    // Vonatszám ellenőrzése (ne legyen negatív)
-    szam = szamotBeolvas("Vonatszam: ", 1, 99999);
-    //Az enter miatt kell cin.ignore
-    std::cin.ignore(1000, '\n');
-    while (true) {
-        std::cout << "Honnan: ";
-        std::cin.getline(honnan, 100);
-        if (ervenyesNev(honnan)) break;
-        std::cout << "Hiba! Kerlek adj meg egy ervenyes varosnevet!" << std::endl;
-    }
-    while (true) {
-        std::cout << "Hova: ";
-        std::cin.getline(hova, 100);
-        if (ervenyesNev(hova)) break;
-        std::cout << "Hiba! Kerlek adj meg egy ervenyes varosnevet!" << std::endl;
-    }
-    while (true) {
-        std::cout << "Indulas (EEEE.HH.NN-OO:PP): ";
-        std::cin.getline(ind, 20);
-        if (ervenyesIdoformatum(ind)) break;
-        std::cout << "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!" << std::endl;
-    }
-    while (true) {
-        std::cout << "Erkezes (EEEE.HH.NN-OO:PP): ";
-        std::cin.getline(erk, 20);
-        if (ervenyesIdoformatum(erk)) break;
-        std::cout << "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!" << std::endl;
-    }
+    // Az új segédfüggvénnyel intézzük az összes beolvasást:
+    szovegetBeolvas("Honnan: ", honnan, 100, ervenyesNev, "Hiba! Kerlek adj meg egy ervenyes varosnevet!");
+    szovegetBeolvas("Hova: ", hova, 100, ervenyesNev, "Hiba! Kerlek adj meg egy ervenyes varosnevet!");
+    szovegetBeolvas("Indulas (EEEE.HH.NN-OO:PP): ", ind, 20, ervenyesIdoformatum, "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!");
+    szovegetBeolvas("Erkezes (EEEE.HH.NN-OO:PP): ", erk, 20, ervenyesIdoformatum, "Hiba! Kerlek hasznald a pontos formatumot (pl. 2026.05.01-12:00)!");
 
     while (strcmp(ind, erk) >= 0) {
         std::cout << "Hiba: Az erkezesnek kesobb kell lennie, mint az indulasnak!" << std::endl;
-        while (true) {
-            std::cout << "Uj erkezes (EEEE.HH.NN-OO:PP): ";
-            std::cin.getline(erk, 20);
-            if (ervenyesIdoformatum(erk)) break;
-            std::cout << "Hiba! Kerlek hasznald a pontos formatumot!" << std::endl;
-        }
+        szovegetBeolvas("Uj erkezes (EEEE.HH.NN-OO:PP): ", erk, 20, ervenyesIdoformatum, "Hiba! Kerlek hasznald a pontos formatumot!");
     }
+
     if (tipus == 1) {
         int k = szamotBeolvas("Kocsik szama: ", 1, 20);
         int u = szamotBeolvas("Ulesek kocsiankent: ", 1, 100);
@@ -141,15 +130,11 @@ void MavRendszer::ujVonat() {
     } else {
         addVonat(new Szemelyvonat(szam, honnan, hova, ind, erk, 200));
     }
-
 }
 void MavRendszer::jegyKiadas() {
-    // Vonat kiválasztása
     std::cout << "--- Jegyvasarlas ---" << std::endl;
-
     int vSzam = szamotBeolvas("Adja meg a vonat szamat: ", 1, 99999);
 
-    // Keresés a vonatok között
     Vonat* kivalasztottVonat = nullptr;
     for (int i = 0; i < vonatDb; ++i) {
         if (vonatok[i]->getVonatszam() == vSzam) {
@@ -163,61 +148,39 @@ void MavRendszer::jegyKiadas() {
         return;
     }
 
-    // Helyfoglalásnak a megkísérlése
-    // A polimorfizmus miatt itt dől el, hogy IC (mátrixos) vagy Személy Vonat
     int kocsi = 0, ules = 0;
     if (!kivalasztottVonat->helyetFoglal(kocsi, ules)) {
         std::cout << "Hiba: Erre a vonatra minden hely elkelt!" << std::endl;
         return;
     }
 
-    // Adatok bekérése a jegyhez
     char nev[100];
+    std::cin.ignore(1000, '\n'); // Tisztítás
+
+    szovegetBeolvas("Utas neve: ", nev, 100, ervenyesNev, "Hiba! Kerlek adj meg egy ervenyes nevet (legalabb 2 karakter, betuket tartalmazzon)!");
+
     char valasz;
-
-    // Bemeneti puffert kitísztítása a korábbi cin-ek után
-    std::cin.ignore(1000, '\n');
-
-    while (true) {
-        std::cout << "Utas neve: ";
-        std::cin.getline(nev, 100);
-        if (ervenyesNev(nev)) break;
-        std::cout << "Hiba! Kerlek adj meg egy ervenyes nevet (legalabb 2 karakter, betuket tartalmazzon)!" << std::endl;
-    }
-
     do {
         std::cout << "Kedvezmenyes jegy? (i/n): ";
         std::cin >> valasz;
-        valasz = tolower(valasz); // Kisbetűvé alakítás, mert így könnyebb kezelni
+        valasz = tolower(valasz);
     } while (valasz != 'i' && valasz != 'n');
-    std::cin.ignore(1000, '\n'); // Előző karakterek takarítása
+    std::cin.ignore(1000, '\n');
 
-    // Jegy példányosítása és hozzáadása
-    if (valasz == 'i' || valasz == 'I') {
+    if (valasz == 'i') {
         char igazolvany[30];
-        while (true) {
-            std::cout << "Igazolvany szama: ";
-            std::cin.getline(igazolvany, 30);
-            if (strlen(igazolvany) >= 3) break; // Minimum 3 karakternek kell lennie
-            std::cout << "Hiba! Az igazolvanyszam tul rovid!" << std::endl;
-        }
+        szovegetBeolvas("Igazolvany szama: ", igazolvany, 30, ervenyesIgazolvany, "Hiba! Az igazolvanyszam tul rovid!");
 
-        // Kedvezményes jegy létrehozása
-        // A k, u értékeket a helyetFoglal már beállította (IC esetén > 0)
         addJegy(new KedvezmenyesJegy(nev, kivalasztottVonat, kocsi, ules, igazolvany));
         std::cout << "Sikeres kedvezmenyes jegyvasarlas!" << std::endl;
-    }
-    else {
-        // Teljes árú jegy létrehozása
+    } else {
         addJegy(new TeljesAruJegy(nev, kivalasztottVonat, kocsi, ules));
         std::cout << "Sikeres teljes aru jegyvasarlas!" << std::endl;
     }
 
-    // Visszajelzés a helyről (ha van)
     if (kocsi > 0) {
         std::cout << "Lefoglalt hely: " << kocsi << ". kocsi, " << ules << ". ules" << std::endl;
     }
-
 }
 
 void MavRendszer::menetrendListazas() const {
@@ -329,7 +292,6 @@ void MavRendszer::jegyBetoltes() {
                 }
             }
 
-            // --- ITT TÖRTÉNIK A BEÍRÁS A VONATBA ---
             // Megpróbáljuk InterCity-ként kezelni a vonatot
             InterCity* ic = dynamic_cast<InterCity*>(kivalasztottVonat);
             if (ic != nullptr) {
