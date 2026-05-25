@@ -19,7 +19,7 @@
  * @date 2026-04-27
  */
 // Segéd függvények a beolvasásokhoz
-int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000) {
+int MavRendszer::szamotBeolvas(const char* prompt, int min , int max) {
     int szam;
     while (true) {
         if (!(std::cout << prompt)) return min; // Biztonsági kilépés
@@ -34,12 +34,12 @@ int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000) {
     }
 }
 // Segédfüggvény az igazolvány ellenőrzéséhez
-bool ervenyesIgazolvany(const char* ig) {
+bool MavRendszer::ervenyesIgazolvany(const char* ig) {
     return strlen(ig) >= 3;
 }
 
 // Segédfüggvény a szövegbeolvasásához és a validációhoz
-void szovegetBeolvas(const char* prompt, char* buffer, int maxLen, bool (*validator)(const char*), const char* hibaUzenet) {
+void MavRendszer::szovegetBeolvas(const char* prompt, char* buffer, int maxLen, bool (*validator)(const char*), const char* hibaUzenet) {
     while (true) {
         std::cout << prompt;
         std::cin.getline(buffer, maxLen);
@@ -48,7 +48,7 @@ void szovegetBeolvas(const char* prompt, char* buffer, int maxLen, bool (*valida
     }
 }
 
-bool ervenyesIdoformatum(const char* ido) {
+bool MavRendszer::ervenyesIdoformatum(const char* ido) {
     // Egyszerű ellenőrzés: 2026.04.27-14:30 -> ez 16 karakter
     if (strlen(ido) != 16) return false;
 
@@ -59,7 +59,7 @@ bool ervenyesIdoformatum(const char* ido) {
     return true;
 }
 //Ervenyes hely megnéző segéd fügvény
-bool ervenyesNev(const char* nev) {
+bool MavRendszer::ervenyesNev(const char* nev) {
     int hossz = strlen(nev);
     if (hossz < 2) return false; // Ha túl rövid (pl. egy üres sor vagy csak egy betű)
 

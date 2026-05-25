@@ -65,6 +65,13 @@ public:
      */
     void addJegy(Jegy* j);
     void jegyBetoltes();
+    //uj private segedfuggvenyek beolvasashoz
+    int szamotBeolvas(const char* prompt, int min = 0, int max = 1000000);
+   static bool ervenyesIgazolvany(const char* ig);
+    void szovegetBeolvas(const char* prompt, char* buffer, int maxLen, bool (*validator)(const char*), const char* hibaUzenet);
+   static bool ervenyesIdoformatum(const char* ido);
+   static bool ervenyesNev(const char* nev);
+
 };
 
 
